@@ -1,0 +1,29 @@
+<!-- STRING INTERPOLATION {{ }} -->
+<!-- permet d'insérer la valeur d'une propriété TypeScript dans le template -->
+<!-- ATTRIBUTE BINDING [ ] -->
+<!-- permet de lier la valeur d'une propriété TypeScript à un attribut HTML -->
+<!-- EVENT BINDING ( ) -->
+<!-- pour lier une méthode à des événements venant du DOM -->
+
+<!-- <div class="face-snap-card">
+    <h2>{{ title }}</h2>
+    <p>Mis en ligne le {{ createdDate }}</p>
+    <img [src]="imageUrl" [alt]="title">
+    <p>{{ description }}</p>
+    <p>
+        <button (click)="onSnap()">{{ buttonText }}</button>
+        🤌 {{ snaps }}</p>
+</div> -->
+
+<!-- <div class="face-snap-card" [ngClass]="{'class-name' OU className : condition}"> -->
+<div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oups, unSnap!' }">
+    <h2>{{ faceSnap.title }}</h2>
+    <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <p>{{ faceSnap.description }}</p>
+    <p *ngIf="faceSnap.location === 'Paris'">Photo prise à {{ faceSnap.location }}</p>
+    <p>
+        <button (click)="onSnap()">{{ buttonText }}</button>
+        <span [ngStyle]="{color:'rgb(0,' + faceSnap.snaps + ',0)'}">🤌 {{ faceSnap.snaps }}</span>
+    </p>
+</div>
