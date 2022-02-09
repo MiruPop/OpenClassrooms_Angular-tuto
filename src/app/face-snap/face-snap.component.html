@@ -17,8 +17,29 @@
 
 <!-- <div class="face-snap-card" [ngClass]="{'class-name' OU className : condition}"> -->
 <div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oups, unSnap!' }">
-    <h2>{{ faceSnap.title }}</h2>
-    <p>Mis en ligne le {{ faceSnap.createdDate }}</p>
+    <h2>{{ faceSnap.title | uppercase }}</h2>
+    <!-- Case Pipe -->
+    <!-- | uppercase | lowercase | titlecase -> première lettre de chaque mot en maj -->
+
+    <p>Mis en ligne le {{ faceSnap.createdDate | date:'longDate' | titlecase }}</p>
+    <!-- le Date Pipe a des options de formattage built-in, mais peut aussi être personnalisé -->
+    <!-- Built-in ex:'medium'; 'longDate'; 'longTime' -->
+    <!-- Perso ex: 'd MMMM yyyy, à HH:mm'; 'le dd/MM/yyyy à HHhmm' -->
+
+    <!-- <p>{{ 4346234.50 | number : '1.0-0' }}</p> -->
+    <!-- Decimal Pipe -->
+    <!-- | number -> formatage du nombre en fonction du Locale de l'appli -->
+    <!-- number: '1.0-0' -> 1= nombre min chiffres avant virgule, 0-0= nb min et max chiffres après virgule -->
+    <!-- (si c'est .0-0, le Pipe arrondit automatiquement le nombre, vers le haut ou le bas) -->
+
+    <!-- <p>{{ 0.473 | percent }}</p> -->
+    <!-- Percent pipe -->
+    <!-- il arrondit par défaut à l'entier plus proche; si non voulu, configurer comme Decimal Pipe -->
+
+    <p>{{ 344.36 | currency : 'EUR' : 'code' }}</p>
+    <!-- Currency pipe (par défaut en $US) -->
+    <!-- : 'EUR' simple -> symbole euro; : 'EUR' : 'code' -> code monnaye (EUR) -->
+
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>{{ faceSnap.description }}</p>
     <p *ngIf="faceSnap.location === 'Paris'">Photo prise à {{ faceSnap.location }}</p>
