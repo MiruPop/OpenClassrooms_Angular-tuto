@@ -4,6 +4,7 @@ export class FaceSnap {
     /* on peut ne pas ajouter le ! à côté des variables, et les initier
     d'une manière que TS "comprend", en les mettant dans un constructeur.
     Mais on peut aussi se passer de constructeur complètement*/
+    id! : number;
     title! : string;
     description! : string;
     createdDate! : Date;
