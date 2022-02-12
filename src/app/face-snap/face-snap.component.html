@@ -21,7 +21,7 @@
     <!-- Case Pipe -->
     <!-- | uppercase | lowercase | titlecase -> première lettre de chaque mot en maj -->
 
-    <p>Mis en ligne le {{ faceSnap.createdDate | date:'longDate' | titlecase }}</p>
+    <!-- <p>Mis en ligne le {{ faceSnap.createdDate | date:'longDate' | titlecase }}</p> -->
     <!-- le Date Pipe a des options de formattage built-in, mais peut aussi être personnalisé -->
     <!-- Built-in ex:'medium'; 'longDate'; 'longTime' -->
     <!-- Perso ex: 'd MMMM yyyy, à HH:mm'; 'le dd/MM/yyyy à HHhmm' -->
@@ -36,15 +36,16 @@
     <!-- Percent pipe -->
     <!-- il arrondit par défaut à l'entier plus proche; si non voulu, configurer comme Decimal Pipe -->
 
-    <p>{{ 344.36 | currency : 'EUR' : 'code' }}</p>
+    <!-- <p>{{ 344.36 | currency : 'EUR' : 'code' }}</p> -->
     <!-- Currency pipe (par défaut en $US) -->
     <!-- : 'EUR' simple -> symbole euro; : 'EUR' : 'code' -> code monnaye (EUR) -->
 
-    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <!-- <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title"> -->
     <p>{{ faceSnap.description }}</p>
-    <p *ngIf="faceSnap.location === 'Paris'">Photo prise à {{ faceSnap.location }}</p>
+<!--     <p *ngIf="faceSnap.location === 'Paris'">Photo prise à {{ faceSnap.location }}</p>
     <p>
         <button (click)="onSnap()">{{ buttonText }}</button>
         <span [ngStyle]="{color:'rgb(0,' + faceSnap.snaps + ',0)'}">🤌 {{ faceSnap.snaps }}</span>
-    </p>
+    </p> -->
+    <button (click)="onViewFaceSnap()">VIEW</button>
 </div>
